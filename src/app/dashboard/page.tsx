@@ -1,20 +1,27 @@
 'use client';
 import { ProtectedRoute } from "@/components/guard/protected-route";
-import { NextPage } from "next";
 import style from "./dashboard.module.scss";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-interface Props {}
+// نوع ساده‌شده برای داده randomuser
+type UserData = {
+  results: Array<{
+    name: { first: string; last: string };
+    dob: { age: number };
+    location: { country: string };
+    email: string;
+    picture: { large: string };
+  }>;
+};
 
-const DashboardPage: NextPage<Props> = ({}) => {
-
-  const [localData, setLocalData] = useState<any | null>(null);
+const DashboardPage = () => {
+  const [localData, setLocalData] = useState<UserData | null>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const data = localStorage.getItem("randomUser");
-      setLocalData(JSON.parse(data!));
+      if (data) setLocalData(JSON.parse(data));
     }
   }, []);
 
@@ -23,9 +30,16 @@ const DashboardPage: NextPage<Props> = ({}) => {
       <div className={style.cardContainer}>
         <div className={style.card}>
           <div className={style.content}>
-            <Image src={localData && localData.results[0].picture.large} alt="avatar" width={100} height={100} className={style.avatar} loading="lazy" />
             {localData && (
               <>
+                <Image
+                  src={localData.results[0].picture.large}
+                  alt="avatar"
+                  width={100}
+                  height={100}
+                  className={style.avatar}
+                  loading="lazy"
+                />
                 <p className={style.description}>First Name: {localData.results[0].name.first}</p>
                 <p className={style.description}>Last Name: {localData.results[0].name.last}</p>
                 <p className={style.description}>Age: {localData.results[0].dob.age}</p>

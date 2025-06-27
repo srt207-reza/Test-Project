@@ -4,9 +4,7 @@ import style from "./auth.module.scss";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
-interface Props {}
-
-const AuthPage: NextPage<Props> = ({}) => {
+const AuthPage: NextPage = () => {
   const [phone, setPhone] = useState("");
   const router = useRouter();
   const isValidPhone = /^09\d{9}$/.test(phone);
