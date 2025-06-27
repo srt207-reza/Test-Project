@@ -1,0 +1,196 @@
+@use "sass:map";
+@use "../public/assets/fonts/iransans/style";
+@use "breakPoints";
+
+$full: 100%;
+:root {
+  /* CSS HEX */
+  --myrtle-green: #287271ff;
+  --saffron: #e9c46aff;
+  --burnt-sienna: #e76f51ff;
+  --charcoal: #264653ff;
+
+  /* CSS HSL */
+  --myrtle-green-1: hsla(179, 48%, 10%, 1);
+  --myrtle-green-2: hsla(179, 48%, 20%, 1);
+  --myrtle-green-3: hsla(179, 48%, 30%, 1); /*main*/
+  --myrtle-green-4: hsla(179, 48%, 40%, 1);
+  --myrtle-green-5: hsla(179, 48%, 50%, 1);
+  --myrtle-green-6: hsla(179, 48%, 60%, 1);
+  --myrtle-green-7: hsla(179, 48%, 70%, 1);
+  --myrtle-green-8: hsla(179, 48%, 80%, 1);
+  --myrtle-green-9: hsla(179, 48%, 90%, 1);
+  --saffron-1: hsla(43, 74%, 16%, 1);
+  --saffron-2: hsla(43, 74%, 26%, 1);
+  --saffron-3: hsla(43, 74%, 36%, 1);
+  --saffron-4: hsla(43, 74%, 46%, 1);
+  --saffron-5: hsla(43, 74%, 56%, 1);
+  --saffron-6: hsla(43, 74%, 66%, 1); /*main*/
+  --saffron-7: hsla(43, 74%, 76%, 1);
+  --saffron-8: hsla(43, 74%, 86%, 1);
+  --saffron-9: hsla(43, 74%, 96%, 1);
+  --burnt-sienna-1: hsla(12, 76%, 11%, 1);
+  --burnt-sienna-2: hsla(12, 76%, 21%, 1);
+  --burnt-sienna-3: hsla(12, 76%, 31%, 1);
+  --burnt-sienna-4: hsla(12, 76%, 41%, 1);
+  --burnt-sienna-5: hsla(12, 76%, 51%, 1);
+  --burnt-sienna-6: hsla(12, 76%, 61%, 1); /*main*/
+  --burnt-sienna-7: hsla(12, 76%, 71%, 1);
+  --burnt-sienna-8: hsla(12, 76%, 81%, 1);
+  --burnt-sienna-9: hsla(12, 76%, 91%, 1);
+  --charcoal-1: hsla(197, 37%, 14%, 1);
+  --charcoal-2: hsla(197, 37%, 24%, 1); /*main*/
+  --charcoal-3: hsla(197, 37%, 34%, 1);
+  --charcoal-4: hsla(197, 37%, 44%, 1);
+  --charcoal-5: hsla(197, 37%, 54%, 1);
+  --charcoal-6: hsla(197, 37%, 64%, 1);
+  --charcoal-7: hsla(197, 37%, 74%, 1);
+  --charcoal-8: hsla(197, 37%, 84%, 1);
+  --charcoal-9: hsla(197, 37%, 94%, 1);
+  --gray-01: hsla(0, 0%, 95%, 1);
+  --gray-02: hsla(0, 0%, 90%, 1);
+  --gray-03: hsla(0, 0%, 85%, 1);
+  --gray-04: hsla(0, 0%, 80%, 1);
+  --gray-05: hsla(0, 0%, 75%, 1);
+  --gray-06: hsla(0, 0%, 70%, 1);
+  --gray-07: hsla(0, 0%, 65%, 1);
+  --gray-08: hsla(0, 0%, 60%, 1);
+  --gray-09: hsla(0, 0%, 55%, 1);
+  --gray-10: hsla(0, 0%, 50%, 1);
+  --gray-11: hsla(0, 0%, 45%, 1);
+  --gray-12: hsla(0, 0%, 40%, 1);
+  --gray-13: hsla(0, 0%, 35%, 1);
+  --gray-14: hsla(0, 0%, 30%, 1);
+  --gray-15: hsla(0, 0%, 25%, 1);
+  --gray-16: hsla(0, 0%, 20%, 1);
+  --gray-17: hsla(0, 0%, 15%, 1);
+  --gray-18: hsla(0, 0%, 10%, 1);
+  --gray-19: hsla(0, 0%, 5%, 1);
+}
+
+html,
+body {
+  min-height: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  background-color: #161616;
+  color: #fff;
+}
+
+/* کل اسکرولبار */
+::-webkit-scrollbar {
+  width: 12px; /* عرض اسکرولبار عمودی */
+  height: 12px; /* ارتفاع اسکرولبار افقی */
+}
+
+/* پس‌زمینه اسکرولبار */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* رنگ پس‌زمینه */
+  border-radius: 10px; /* گوشه‌های گرد */
+}
+
+/* نوار اسکرولبار */
+::-webkit-scrollbar-thumb {
+  background: #888; /* رنگ نوار اسکرولبار */
+  border-radius: 10px; /* گوشه‌های گرد */
+  border: 3px solid #f1f1f1; /* حاشیه دور نوار */
+  transition: background 0.3s ease;
+}
+
+/* تغییر رنگ نوار اسکرولبار هنگام هاور */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  white-space: nowrap;
+}
+
+* {
+  font-feature-settings: "ss02";
+}
+
+#__next {
+  height: $full;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.m-1 {
+  margin: 1rem;
+}
+
+.mx-1 {
+  margin: 0 1rem;
+}
+
+.m-2 {
+  margin: 2rem;
+}
+
+.m-3 {
+  margin: 3rem;
+}
+
+.container {
+  height: $full;
+  // padding: 0 12rem;
+
+  @include breakPoints.breakpoint(xs, sm) {
+    // background-color: blue;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.5;
+  unicode-bidi: isolate;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.5;
+  unicode-bidi: isolate;
+}
+
+p {
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.5;
+}

@@ -1,0 +1,158 @@
+$primary-bg: rgba(24, 20, 20, 0.987);
+$primary-color: #fff;
+$accent-color: #03f40f;
+$disabled-bg: #444;
+$disabled-color: #bbb;
+$box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+@mixin disabled-btn {
+  pointer-events: none;
+  opacity: 0.6;
+  background: $disabled-bg !important;
+  color: $disabled-color !important;
+  box-shadow: none !important;
+  border-radius: 5px;
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: $primary-bg;
+  box-sizing: border-box;
+  box-shadow: $box-shadow;
+  border-radius: 10px;
+
+  h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: $primary-color;
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  .user-box {
+    position: relative;
+
+    input {
+      width: 100%;
+      padding: 10px 0;
+      font-size: 16px;
+      color: $primary-color;
+      margin-bottom: 30px;
+      border: none;
+      border-bottom: 1px solid $primary-color;
+      outline: none;
+      background: transparent;
+      direction: ltr;
+    }
+
+    label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px 0;
+      font-size: 16px;
+      color: $primary-color;
+      pointer-events: none;
+      transition: 0.5s;
+    }
+
+    input:focus ~ label,
+    input:valid ~ label {
+      top: -20px;
+      left: 0;
+      color: #bdb8b8;
+      font-size: 12px;
+    }
+  }
+
+  form {
+    button {
+      position: relative;
+      display: inline-block;
+      padding: 10px 20px;
+      color: $primary-color;
+      font-size: 16px;
+      text-decoration: none;
+      text-transform: uppercase;
+      overflow: hidden;
+      transition: 0.5s;
+      margin-top: 40px;
+      letter-spacing: 4px;
+      background-color: transparent;
+      border: none;
+
+      &.disabled,
+      &:disabled {
+        @include disabled-btn;
+      }
+
+      &:hover {
+        background: $accent-color;
+        cursor: pointer;
+        color: $primary-color;
+        border-radius: 5px;
+        box-shadow: 0 0 5px $accent-color, 0 0 25px $accent-color,
+          0 0 50px $accent-color, 0 0 100px $accent-color;
+      }
+
+      span {
+        position: absolute;
+        display: block;
+
+        &:nth-child(1) {
+          bottom: 2px;
+          left: -100%;
+          width: 100%;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, $accent-color);
+          animation: btn-anim1 2s linear infinite;
+        }
+      }
+
+      &.disabled span:nth-child(1),
+      &:disabled span:nth-child(1) {
+        animation: none;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    width: 95vw;
+    min-width: unset;
+    max-width: 98vw;
+    padding: 1rem 4vw;
+
+    .user-box {
+      input,
+      label {
+        font-size: 15px;
+        padding: 8px 0;
+      }
+    }
+
+    form {
+      button {
+        font-size: 15px;
+        padding: 10px 0;
+        width: 100%;
+        margin-top: 28px;
+      }
+    }
+  }
+}
